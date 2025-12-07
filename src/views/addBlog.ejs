@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+        <div class="container mt-2">
+
+            <h2 class="text-center mb-1 fw-bold">Create a Blog</h2>
+
+            <form class="mx-auto p-4 shadow rounded" style="max-width: 600px;" action="/blogs" method="post" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="coverImage" class="form-label fw-bold">Blog Title</label>
+                    <input type="file" name="coverImage" class="form-control p-2" id="coverImage" placeholder="Enter blog title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-bold">Blog Title</label>
+                    <input type="text" name="tittle" class="form-control p-2" id="title" placeholder="Enter blog title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="body" class="form-label fw-bold">Blog Content</label>
+                    <textarea class="form-control p-3" name="body" id="body" style="height: 180px;"
+                        placeholder="Write your blog here..." required></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+                        Publish Blog
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <%- include('./partials/script.ejs') %>
+</body>
+
+</html>
