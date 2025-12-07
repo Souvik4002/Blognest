@@ -12,11 +12,11 @@
     <div class="container mt-4">
         <div class="d-flex flex-row flex-wrap gap-3">
             <% blogs.forEach((item) => { %>
-                <div class="card" style="width: 18rem;">
-                    <img src="<%= item.coverImageUrl %>" class="card-img-top" alt="...">
+                <div class="card" style="max-width: 18rem;">
+                    <img src="<%= item.coverImageUrl %>" class="card-img-top"  style="height: 150px; width: 100%; object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title"><%= item.tittle %></h5>
-                        <a href="/blogs/<%= item._id %>" class="btn btn-primary">Go somewhere</a>
+                        <a href="/blogs/<%= item._id %>" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             <% }) %>

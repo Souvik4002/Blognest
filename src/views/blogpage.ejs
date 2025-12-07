@@ -30,32 +30,32 @@
                     <div>
                         <img src="<%= blogData.author.profileImageUrl %>" alt="Blog Cover Image" class="img-fluid 
                       mb-3" style="max-width: 80px; border-radius: 8px;">
-
                         <%= blogData.author.name%>
                     </div>
                     <div class=" container mt-2">
+                        <h3>What do you think? Write a comment!</h3>
                         <form method="post" action="/blogs/comments/<%= blogData._id%>">
                             <div class="mb-3">
-                                <h3>Comments</h3>
                                 <input type="text" class="form-control" name="commentBody">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
 
+                    <h3 class="mt-4">Comments</h3>
                     <% comments.forEach((item)=> { %>
                         <div class="container mt-2">
 
-                            <img src="<%= item.author.profileImageUrl %>" style="max-width: 80px; border-radius: 8px;"
+                            <img src="<%= item.author.profileImageUrl %>" style="max-width: 50px; border-radius: 8px;"
                                 class="mb-2">
                             <%= item.author.name %>
                                 <div>
-                                <%= item.body %>
-                            </div>
+                                    <%= item.body %>
+                                </div>
 
                         </div>
                         <% }) %>
-                    </div>
+                </div>
 
                 <% } %>
                     <%- include('./partials/script.ejs') %>

@@ -7,10 +7,9 @@ import userRouter from "./routes/user.js";
 import blogRouter from "./routes/blog.js"
 import { restrictToLoggedInUserOnly } from "./middlewares/authentication.js";
 import cookieParser from 'cookie-parser';
-import { error } from "console";
 import blog from "./db/user.blog.js";
-import users from "./db/user.model.js";
-import comment from "./db/user.comments.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const app = express();
@@ -26,15 +25,14 @@ app.use(express.static('public'));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log(__filename);
-console.log(__dirname);
-console.log(path.resolve())
+//console.log(__filename);
+//console.log(__dirname);
+//console.log(path.resolve())
 
 
 
 // MongoDB connection
-const mongoURI = 'mongodb+srv://password:password%40123@backenddb.dltf4ge.mongodb.net/backend_project?retryWrites=true&w=majority&appName=backenddb'; // Update with your connection string if using Atlas
-
+const mongoURI = process.env.MONGODB_URL; 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -60,41 +58,7 @@ app.get("/", restrictToLoggedInUserOnly, async (req, res) => {
         console.log(error);
     }
 });
-app.get('/get', async (req,res) => {
-    try {
-        const item = await blog.find().populate('author');
-      res.send(item)
-    } catch (error) {
-        console.log(error);
-    }
-})
-app.delete('/delete/:id', async(req,res)=>{
-    try {
-        const id = req.params.id;
-       const item =  await blog.findByIdAndDelete(id);
-       res.send(item)
-    } catch (error) {
-       console.log(error); 
-    } 
-})
 
-app.get('/comments', async (req,res) => {
-    try {
-      const item = await comment.find();
-      res.send(item);
-    } catch (error) {
-       console.log(error) 
-    }
-})
-app.delete('/comments/:id', async(req,res)=>{
-    try {
-        const id = req.params.id;
-       const item =  await comment.findByIdAndDelete(id);
-       res.send(item)
-    } catch (error) {
-       console.log(error); 
-    } 
-})
 
 app.use("/users", userRouter);
 app.use("/blogs", blogRouter)
