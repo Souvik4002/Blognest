@@ -1,6 +1,6 @@
 #  Blog Website
 
-A full-stack blog application built using **Node.js**, **Express.js**, **EJS**, and **JavaScript**, with **MongoDB Atlas (Mongo Cloud)** as the database. The platform allows users to write, publish, and read blogs with secure authentication using **JWT**.
+A full-stack blog application built using **Node.js**, **Express.js**, **EJS**, and **JavaScript**, with **MongoDB** as the database. The platform allows users to write, publish, and read blogs with secure authentication using **JWT**.
 
 ---
 
@@ -18,8 +18,7 @@ while all visitors can read published content. The application uses **JWT-based 
 -  Authenticated users can write and publish blogs
 -  Public access to read all published blogs
 -  Protected routes for authorized users
--  Cloud database using **MongoDB Atlas**
-- Server-side rendering with **EJS templates**
+-  Server-side rendering with **EJS templates**
 -  Blog details including author and creation date
 
 ---
@@ -28,7 +27,7 @@ while all visitors can read published content. The application uses **JWT-based 
 
 - **Backend:** Node.js, Express.js  
 - **Frontend:** EJS, HTML, CSS, JavaScript  
-- **Database:** MongoDB Atlas (Mongo Cloud)  
+- **Database:** MongoDB 
 - **Authentication:** JWT (JSON Web Token)  
 - **Tools:** Git, npm  
 
