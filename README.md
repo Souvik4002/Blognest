@@ -9,8 +9,6 @@ A full-stack blog application built using **Node.js**, **Express.js**, **EJS**, 
 This blog website provides a platform where users can securely register and log in to write their own blogs. Each authenticated user can create and publish blog posts,
 while all visitors can read published content. The application uses **JWT-based authentication** to protect sensitive routes and ensure secure access.
 
-MongoDB Atlas is used as a cloud-based database to store user information and blog data efficiently and securely.
-
 ---
 
 ##  Features
